@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @favinio.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @favinio.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_favinio_path(@favinio) %> |
+<%= link_to 'Back', favinios_path %>
