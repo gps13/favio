@@ -13,6 +13,10 @@
   <tr>
     <td><%= favinio.title %></td>
     <td><%= favinio.description %></td>
+    <td><%= pluralize(favinio.votes.count, "vote") %></td>
+    <!-- pluralize(topic.votes.count, "vote") displays the number of votes the topic has, plus the word 'vote' or 'votes' accordingly -->
+    <td><%= button_to '+1', votes_path(favinio_id: favinio.id), method: :post %></td>
+    <!-- votes_path(topic_id: 42) would output /votes?topic_id=42 -->
     <td><%= link_to 'Show', favinio %></td>
     <td><%= link_to 'Edit', edit_favinio_path(favinio) %></td>
     <td><%= link_to 'Destroy', favinio, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -1,4 +1,7 @@
 Favio::Application.routes.draw do
+  resources :votes
+
+
   resources :favinios
 
   root to: 'favinios#index'
