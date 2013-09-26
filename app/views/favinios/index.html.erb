@@ -3,7 +3,6 @@
 <table>
   <tr>
     <th>Title</th>
-    <th>Description</th>
     <th></th>
     <th></th>
     <th></th>
@@ -11,8 +10,7 @@
 
 <% @favinios.each do |favinio| %>
   <tr>
-    <td><%= favinio.title %></td>
-    <td><%= favinio.description %></td>
+    <td><%= link_to favinio.title, favinio %></td>
     <td><%= pluralize(favinio.votes.count, "vote") %></td>
     <!-- pluralize(topic.votes.count, "vote") displays the number of votes the topic has, plus the word 'vote' or 'votes' accordingly -->
     <td><%= button_to '+1', votes_path(favinio_id: favinio.id), method: :post %></td>

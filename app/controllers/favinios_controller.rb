@@ -44,7 +44,7 @@ class FaviniosController < ApplicationController
 
     respond_to do |format|
       if @favinio.save
-        format.html { redirect_to @favinio, notice: 'Favinio was successfully created.' }
+        format.html { redirect_to favinios_path, notice: 'Favinio was successfully created.' }
         format.json { render json: @favinio, status: :created, location: @favinio }
       else
         format.html { render action: "new" }
