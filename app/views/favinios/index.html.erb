@@ -4,8 +4,6 @@
   <tr>
     <th>Title</th>
     <th></th>
-    <th></th>
-    <th></th>
   </tr>
 
 <% @favinios.each do |favinio| %>
@@ -14,10 +12,11 @@
     <td><%= pluralize(favinio.votes.count, "vote") %></td>
     <!-- pluralize(topic.votes.count, "vote") displays the number of votes the topic has, plus the word 'vote' or 'votes' accordingly -->
     <td><%= button_to '+1', votes_path(favinio_id: favinio.id), method: :post %></td>
+    <% if favinio.votes.present? %>
+      <td><%= button_to '-1', vote_path(id: favinio.votes.last.id), method: :delete %></td>
+    <% end %>
     <!-- votes_path(topic_id: 42) would output /votes?topic_id=42 -->
-    <td><%= link_to 'Show', favinio %></td>
-    <td><%= link_to 'Edit', edit_favinio_path(favinio) %></td>
-    <td><%= link_to 'Destroy', favinio, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Delete', favinio, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>

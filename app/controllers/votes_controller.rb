@@ -5,4 +5,9 @@ class VotesController < ApplicationController
 		vote.save!
 		redirect_to(favinios_path)
 	end
+	def destroy
+	    vote = Vote.find(params[:id])
+	    vote.destroy
+	    redirect_to(favinios_path)
+	end
 end
