@@ -80,4 +80,9 @@ class FaviniosController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def preview
+    comment = Favinio.new(params[:id])
+    render :text => comment.body_html
+  end
 end
